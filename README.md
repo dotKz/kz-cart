@@ -15,8 +15,8 @@
 
 **For Inventory / Put in stable you can use QBR-Target or QTarget and use this event :**
 
-- Inventory : ```bash kz-cart:client:CartInventory ```
-- Put In Stable : ```bash kz-cart:client:PutInStable ```
+- Inventory : ``` kz-cart:client:CartInventory ```
+- Put In Stable : ``` kz-cart:client:PutInStable ```
 
 *For QTarget (exemple):*
 ```bash
