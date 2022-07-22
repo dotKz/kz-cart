@@ -164,7 +164,7 @@ RegisterNetEvent("kz-cart:server:SellCart", function(data)
 
 	MySQL.Async.fetchAll('DELETE FROM cart WHERE `cid`=@cid AND`plate`=@plate;', {cid = Playercid,  plate = dPlate}, function(result) end)
 	MySQL.Async.fetchAll('DELETE FROM stashitems WHERE `stash`=@plate;', {plate = dPlate}, function(result)	end)
-	for k, v in pairs(Config.Itemlist) do
+	for k, v in pairs(Config.CartList) do
 		if v.model ~= "name" then
 			if v.model == dModel then
 				print(dModel)
