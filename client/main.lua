@@ -419,8 +419,6 @@ end)
 
 RegisterNetEvent('kz-cart:client:TakeOutPublic', function(vehicle)
     if vehicle.state == Lang:t('state._in') then
-        --local TakeOutDist = #(GetEntityCoords(PlayerPedId()) - StableCart[currentStable].pz)
-            --if TakeOutDist >= 1 and TakeOutDist <= 4 then
                 name = vehicle.name
                 cid = vehicle.cid
                 model = vehicle.model
@@ -436,10 +434,6 @@ RegisterNetEvent('kz-cart:client:TakeOutPublic', function(vehicle)
                     local tempplate = exports['qbr-core']:GetPlate(veh)
                     TriggerServerEvent('kz-cart:server:UpdateState', 0, plate, tempplate)
                 end, StableCart[currentStable].spawnPoint, true)
-
-            --elseif TakeOutDist <= 1 then
-            --    exports['qbr-core']:Notify(9, "Veuillez faire de l'espace pour que nous puissions apporter votre chariot !", 2000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
-            --end
     elseif vehicle.state == Lang:t('state._out') then
         exports['qbr-core']:Notify(9, Lang:t('state.out'), 2000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
     elseif vehicle.state == Lang:t('state._ss') then
