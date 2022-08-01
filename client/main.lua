@@ -480,7 +480,7 @@ end)
 
 
 RegisterNetEvent('kz-cart:client:CartInventory', function()
-	local vehicle = exports['qbr-core']:GetClosestVehicle()
+    local vehicle = exports['qbr-core']:GetClosestVehicle()
     local plate = exports['qbr-core']:GetPlate(vehicle)
 
     exports['qbr-core']:TriggerCallback('kz-cart:server:CheckPlateInventory', function(result) 
@@ -488,7 +488,15 @@ RegisterNetEvent('kz-cart:client:CartInventory', function()
             exports['qbr-core']:Notify(9, Lang:t('error.inverr'), 2000, 0, 'mp_lobby_textures', 'cross', 'COLOR_WHITE')
         else
             for k, v in pairs(result) do
-                TriggerServerEvent("inventory:server:OpenInventory", "stash", v.plate, { maxweight = Config.CartInvWeight, slots = Config.CartInvSlots, })
+                if Config.SetInv then
+                    local vehicleHash = GetEntityModel(vehicle)
+                    local trunk = Config.Inv[vehicleHash]
+                    maxweight = trunk["maxweight"]
+                    slots = trunk["slots"]
+                    TriggerServerEvent("inventory:server:OpenInventory", "stash", v.plate, { maxweight = trunk["maxweight"], slots = trunk["slots"], })
+                else
+                    TriggerServerEvent("inventory:server:OpenInventory", "stash", v.plate, { maxweight = Config.CartInvWeight, slots = Config.CartInvSlots, })
+                end
                 TriggerEvent("inventory:client:SetCurrentStash", v.plate)
             end
         end

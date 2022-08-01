@@ -6,6 +6,8 @@ Config.CartInvWeight = 480000
 Config.CartInvSlots = 24
 Config.MenuImg = "https://media.discordapp.net/attachments/643013669369937941/993545606633111632/CHARIOTS.png"
 
+Config.SetInv = true -- Use individual setting / type of wargon (look Config.Inv)
+
 
 -- ////////////////////// Stable Cart Localisation //////////////////////
 StableCart = {
@@ -69,4 +71,21 @@ Config.CartList = {
         ['model'] = "COACH2", 
         ['price'] = 1500, 
     },
+}
+
+-- ////////////////////// Inventory (set true to Config.SetInv) //////////////////////
+Config.Inv = {
+    [1761016051] = {---COACH2
+        ["maxweight"] = 1000,
+        ["slots"] = 3,
+    },
+    [-2044900246] = {---BOUNTYWAGON01X
+        ["maxweight"] = 2000,
+        ["slots"] = 4,
+    },
+    [-1698498246] = {---HUNTERCART01
+        ["maxweight"] = 3000,
+        ["slots"] = 5,
+    },
+
 }
