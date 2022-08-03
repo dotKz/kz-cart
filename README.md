@@ -24,7 +24,6 @@
 exports.qtarget:AddTargetModel({-1698498246, -2044900246, 1761016051}, {
 	options = {
 		{
-			event = "qbr-cart:client:CartInventory",
 			event = "kz-cart:client:CartInventory",
 			icon = "fas fa-box-circle-check",
 			label = "Coffre du chariot",
